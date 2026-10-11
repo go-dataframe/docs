@@ -1,0 +1,5 @@
+        rain_mean  rain_max  days
+city                             
+Lyon   793.900000     830.5   317
+Nice   720.266667     760.1   195
+Paris  583.933333     640.2   332
