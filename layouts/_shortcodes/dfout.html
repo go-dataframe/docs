@@ -1,0 +1,19 @@
+{{- /* Code, and what it printed.
+
+  {{< dfout "name" >}} shows figures/<name>.go verbatim, then
+  static/outputs/<name>.txt (what the frame prints: text/plain) in a code
+  block, then static/outputs/<name>.html (the table a notebook shows:
+  text/html) as HTML. Both outputs are written by `go run .` in figures/
+  from that very file; the CI writes them again and fails if one differs
+  from the committed file. */ -}}
+{{- $name := .Get 0 -}}
+{{- $src := readFile (printf "figures/%s.go" $name) -}}
+{{- $txt := readFile (printf "static/outputs/%s.txt" $name) -}}
+{{- $htmlPath := printf "static/outputs/%s.html" $name -}}
+{{ printf "```go\n%s```\n" $src | .Page.RenderString (dict "display" "block") }}
+<p class="df-caption">Printed (<code>text/plain</code>):</p>
+{{ printf "```text\n%s```\n" $txt | .Page.RenderString (dict "display" "block") }}
+{{- if fileExists $htmlPath }}
+<p class="df-caption">Shown in a notebook (<code>text/html</code>):</p>
+<div class="df-html">{{ readFile $htmlPath | safeHTML }}</div>
+{{- end }}

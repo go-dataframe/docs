@@ -1,0 +1,3 @@
+{{- /* {{< gofile "figures/data.go" >}}: a Go file of this repository, verbatim,
+  as a code block, so the page never carries a copy that can drift. */ -}}
+{{ printf "```go\n%s```\n" (readFile (.Get 0)) | .Page.RenderString (dict "display" "block") }}

@@ -1,0 +1,48 @@
+/* go-dataframe branding on Hextra (github.com/go-dataframe/brand).
+ *
+ * The mark's gradient, #EE8FCF -> #A93A82 (branding/svg/color/go-dataframe.svg).
+ * Hextra derives its whole primary scale (links, active sidebar entry,
+ * buttons) from these three variables.
+ *
+ * Light theme: #A93A82 = hsl(321 49% 45%), the gradient's dark end
+ *              (5.81:1 on white).
+ * Dark theme:  #EE8FCF = hsl(320 74% 75%), its light end. */
+:root {
+  --primary-hue: 321deg;
+  --primary-saturation: 49%;
+  --primary-lightness: 45%;
+}
+.dark {
+  --primary-hue: 320deg;
+  --primary-saturation: 74%;
+  --primary-lightness: 75%;
+}
+
+/* Tables: their headers stand out in the brand colour and their text is a
+ * size smaller than the prose. In the dark theme the header keeps the dark
+ * end: white on #EE8FCF cannot be read. */
+.content table { font-size: 0.875em; }
+.content table th { background: #A93A82; color: #fff; }
+
+/* Figures drawn by go-plot have a white background: in the dark theme they
+ * sit on a white card rather than being inverted. */
+.content img.figure { background: #fff; border-radius: 0.5rem; padding: 0.5rem; }
+
+/* The version selector's list hangs from its button's right edge, so that it
+ * stays on screen at the end of the navbar. */
+.fs-version-select .hextra-nav-menu-items { left: auto !important; right: 0; transform: none !important; }
+
+/* The outdated-version banner (layouts/_partials/custom/content-begin.html). */
+.nd-outdated { margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 0.5rem;
+  border: 1px solid #f59e0b; background: #fffbeb; color: #78350f; }
+.dark .nd-outdated { background: #451a03; color: #fde68a; border-color: #b45309; }
+.nd-outdated a { text-decoration: underline; font-weight: 600; }
+
+/* A frame's text/html output (layouts/_shortcodes/dfout.html), as a notebook
+ * shows it: the dataframe's own <table class="dataframe">, numbers right-
+ * aligned, the header row in the brand colour like every other table. */
+.df-caption { margin-top: 1rem; font-size: 0.875em; opacity: 0.8; }
+.df-html { overflow-x: auto; margin-top: 0.5rem; }
+.df-html table.dataframe { border-collapse: collapse; font-size: 0.875em; }
+.df-html table.dataframe td { text-align: right; font-variant-numeric: tabular-nums; }
+.df-html table.dataframe tbody th { text-align: left; }
