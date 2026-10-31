@@ -1,6 +1,6 @@
 module github.com/go-dataframe/docs/figures
 
-go 1.27.2
+go 1.27.3
 
 require (
 	github.com/go-dataframe/dataframe v0.1.0
